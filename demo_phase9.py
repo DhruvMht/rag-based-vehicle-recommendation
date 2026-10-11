@@ -2,7 +2,7 @@
 
 150 vehicles -> metadata filtering (Phase 6, skipped here for a
 broad query) -> BM25+Dense hybrid (Phase 7) -> merge/dedup (Phase 8) ->
-Top 30 candidates -> Cross-Encoder -> Top 5. Shows the reranked order vs.
+Top 30 candidates -> Cross-Encoder -> Top RERANK_TOP_K. Shows the reranked order vs.
 the pre-rerank (hybrid+evidence) order side by side, since the whole
 point of this phase is that the cross-encoder can reorder things.
 """

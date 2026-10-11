@@ -81,8 +81,11 @@ def main() -> None:
     for field, accuracy in sorted(field_accuracy.items()):
         print(f"  {field:20s} {accuracy:.1%}")
 
-    banner("2. Retrieval quality across configurations (Top-5)")
+    # Derived, never hardcoded: this banner read "(Top-5)" while
+    # RERANK_TOP_K was later changed to 3, so the heading and the numbers
+    # underneath it could disagree without anything flagging it.
     top_k = config.RERANK_TOP_K
+    banner(f"2. Retrieval quality across configurations (Top-{top_k})")
     configurations = [
         ("BM25 alone", bm25_only_fn(bm25, top_k)),
         ("Dense alone", dense_only_fn(dense, top_k)),

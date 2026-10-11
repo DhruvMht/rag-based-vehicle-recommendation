@@ -2,7 +2,7 @@
 
 Fast Retrieval -> Top-N Candidates -> Cross-Encoder -> Accurate Relevance
 Scores -> Final Top-K. Example concrete flow: 150 vehicles -> metadata
-filtering -> BM25+Dense -> Top 30 -> Cross-Encoder -> Top 5.
+filtering -> BM25+Dense -> Top 30 -> Cross-Encoder -> Top RERANK_TOP_K.
 
 GLOBAL RULE: the cross-encoder must never score the full vehicle set --
 only a pre-filtered/retrieved candidate set. Enforced here, not just left
